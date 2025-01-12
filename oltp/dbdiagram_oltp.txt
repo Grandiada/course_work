@@ -1,0 +1,88 @@
+// Use DBML to define your database structure
+// Docs: https://dbml.dbdiagram.io/docs
+
+table users {
+  id guid [primary key]
+  username varchar [not null, unique]
+  password_hash varchar [not null]
+  email varchar [not null, unique]
+  phone varchar [unique]
+  created_at timestamp
+  age integer
+  weight integer
+  height integer  
+}
+
+table symptoms {
+  id guid [primary key]
+  translationKeyName varchar [not null, unique]
+  translationKeyDescriptopn varchar
+}
+
+table users_symptoms {
+  id guid [primary key]
+  symptom_id guid [not null]
+  user_id guid [not null]
+}
+
+Ref: users.id < users_symptoms.user_id 
+Ref: symptoms.id < users_symptoms.symptom_id
+
+table products {
+ id guid [primary key]
+ name varchar [not null]
+ translationKeyName varchar
+}
+
+table products_symptoms{
+  id guid [primary key]
+  symptom_id guid [not null]
+  product_id guid [not null]
+}
+
+Ref: symptoms.id < products_symptoms.symptom_id 
+Ref: products.id < products_symptoms.product_id
+
+table orders{
+  id guid [primary key]
+  user_id guid [not null]
+  orderCreatedAt date [not null]
+  orderPaidAt date [note:"date of payment callback"]
+  supplierRequestedAt date [note:"request with order to supplier sent"]
+  supplierSentAt date [note:"supplier sent order"]
+  deliveredAt date [note:"supplier delivered order"]
+  refundedAt date [note:"in a case of refund"]
+  completedAt date [note:"two week passed not refundable"]
+}
+Ref: orders.user_id > users.id 
+
+table sold_products{
+  id guid [primary key]
+  order_id guid [not null]
+  supplier_price decimal [not null]
+  selling_price decimal [not null]
+  supply_id guid [not null]
+}
+
+Ref: supplier_product.id < sold_products.supply_id 
+Ref: orders.id < sold_products.order_id 
+
+table suppliers {
+ id guid [primary key]
+ companyName varchar [not null]
+ address varchar [not null]
+ nip varchar [not null]
+ contact_phone varchar [not null]
+}
+
+table supplier_product {
+  id guid [primary key]
+  supplier_id guid [not null]
+  product_id guid [not null]
+  supplier_price decimal [not null]
+  selling_price decimal [not null]
+  quantity integer [not null]
+}
+
+Ref: supplier_product.supplier_id > suppliers.id 
+Ref: supplier_product.product_id > products.id 

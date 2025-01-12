@@ -1,0 +1,11 @@
+id,username,password_hash,email,phone,created_at,age,weight,height
+a96f74c7-5186-410d-b77e-946a599712b4,user_0,hash_0,user0@example.com,+1234567800,2023-01-14,45,63,171
+fd2450b5-17cf-4356-bef9-0d5a3688ad75,user_1,hash_1,user1@example.com,+1234567801,2022-11-23,29,71,170
+d882a96a-e96f-417c-9b8f-d7c5899b7fc6,user_2,hash_2,user2@example.com,+1234567802,2021-03-02,22,84,176
+bdc3d33b-ca42-4464-9666-b58f17b0871f,user_3,hash_3,user3@example.com,+1234567803,2021-04-05,21,79,166
+a003ce29-3135-4871-aa40-f7102930f615,user_4,hash_4,user4@example.com,+1234567804,2020-11-15,29,60,191
+4c6251b9-e7c5-45bd-9d55-dcba49e86ccb,user_5,hash_5,user5@example.com,+1234567805,2023-07-23,42,92,181
+c4620e30-bd7b-4593-adaf-c7d17c410614,user_6,hash_6,user6@example.com,+1234567806,2021-11-29,23,81,170
+5ddce3d2-615f-4741-a267-b13f549125a2,user_7,hash_7,user7@example.com,+1234567807,2022-02-25,39,100,183
+749db35a-d975-4369-8b94-fee0018e6e9e,user_8,hash_8,user8@example.com,+1234567808,2021-10-21,47,88,187
+cce8bb47-a6c2-404d-ac9e-213266e3f6ca,user_9,hash_9,user9@example.com,+1234567809,2020-12-10,51,94,166
